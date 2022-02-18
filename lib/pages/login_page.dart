@@ -65,7 +65,7 @@ class __FormState extends State<_Form> {
 
           CustomInput(
             icon: Icons.lock,
-            placeholder: 'Contraseña',
+            placeholder: 'Contraseña', 
             textController: passCtrl,
             isPassword: true,
           ),
