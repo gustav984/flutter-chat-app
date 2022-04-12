@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/helpers/mostrar_alerta.dart';
 import 'package:flutter_chat/services/auth_services.dart';
+import 'package:flutter_chat/services/socket_service.dart';
 import 'package:flutter_chat/widgets/boton_azul.dart';
 import 'package:flutter_chat/widgets/custom_input.dart';
 import 'package:flutter_chat/widgets/labels.dart';
@@ -55,6 +56,7 @@ class __FormState extends State<_Form> {
   @override
   Widget build(BuildContext context) {
     final authServices=Provider.of<AuthServices>(context) ;
+    final socketService=Provider.of<SocketService>(context) ;
 
     return Container(
       margin:const EdgeInsets.only(top: 40),
@@ -86,6 +88,7 @@ class __FormState extends State<_Form> {
               if(loginOk){
                 //Vavegar a otra pantalla
                 print('Correctooo');
+                socketService.connect();
                 Navigator.pushReplacementNamed(context, 'usuarios');
               }else{
                 //Mostrar alerta
